@@ -1,6 +1,11 @@
+import { memo, useContext } from 'react'
 import './TodoItem.css'
-function TodoItem({content,craetedDate,id,isDone,onUpdate,onDelete}) {
+import { TodoContext, TodoDispatchContext } from '../TodoContext'
 
+
+function TodoItem({content,craetedDate,id,isDone}) {
+
+  const {onUpdate,onDelete}=useContext(TodoDispatchContext)
   return (
     <div className='TodoItem'>
 
@@ -12,4 +17,4 @@ function TodoItem({content,craetedDate,id,isDone,onUpdate,onDelete}) {
   )
 }
 
-export default TodoItem
+export default memo(TodoItem)
